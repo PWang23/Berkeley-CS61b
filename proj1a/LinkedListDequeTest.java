@@ -3,7 +3,6 @@ import static org.junit.Assert.*;
 
 /** Performs some basic linked list tests. */
 public class LinkedListDequeTest {
-	/* Test add First*/
 	@Test
 	public void testaddFirstandSize() {
 		LinkedListDeque L = new LinkedListDeque();
@@ -41,7 +40,7 @@ public class LinkedListDequeTest {
 	}
 
 	@Test
-	public void testget(){
+	public void testget() {
 		LinkedListDeque L = new LinkedListDeque();
 		L.addFirst(2);
 		L.addFirst(1);
@@ -50,7 +49,7 @@ public class LinkedListDequeTest {
 	}
 
 	@Test
-	public void testgetRecursive(){
+	public void testgetRecursive() {
 		LinkedListDeque L = new LinkedListDeque();
 		L.addFirst(2);
 		L.addFirst(1);
@@ -85,7 +84,6 @@ public class LinkedListDequeTest {
 	@Test
 	public void addIsEmptySizeTest() {
 		System.out.println("Running add/isEmpty/Size test.");
-		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
 		/*
 		LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
 
@@ -117,7 +115,6 @@ public class LinkedListDequeTest {
 
 		System.out.println("Running add/remove test.");
 
-		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
 		/*
 		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
 		// should be empty 
@@ -134,4 +131,4 @@ public class LinkedListDequeTest {
 		printTestStatus(passed);
 		*/
 	}
-} 
+}

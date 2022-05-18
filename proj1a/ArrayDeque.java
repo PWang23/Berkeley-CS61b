@@ -1,14 +1,43 @@
 public class ArrayDeque<T> {
-    private T[] items;
-    private int size;
-    private int nextFirst;
-    private int nextLast;
+    public T[] items;
+    public int size;
+    public int nextFirst;
+    public int nextLast;
 
     public ArrayDeque() {
         items = (T[]) new Object[8];
         size = 0;
         nextFirst = 7;
         nextLast = 0;
+    }
+
+    public void addFirst(T item) {
+        if (nextFirst == nextLast - 1) {
+            resizeUp();
+        }
+        items[nextFirst] = item;
+        nextFirst--;
+        size++;
+    }
+
+    public void addLast(T item) {
+        if (nextFirst == nextLast - 1) {
+            resizeUp();
+        }
+        items[nextLast] = item;
+        nextLast++;
+        size++;
+    }
+
+    public boolean isEmpty() {
+        if (size == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public int size() {
+        return size;
     }
 
     public void printDeque() {
@@ -21,46 +50,36 @@ public class ArrayDeque<T> {
         System.out.println();
     }
 
-    public boolean isEmpty() {
-        if (size == 0){
-            return true;
-        }
-        return false;
-    }
-
-    public T get(int index) {
-        return items[index];
-    }
-
-    public int size() {
-        return size;
-    }
-
-    private void resize() {
+    private void resizeUp() {
+        //length * 2
         T[] resizedArray = (T[]) new Object[items.length * 2];
-        System.arraycopy(items, 0,resizedArray, 0,nextLast);
-        System.arraycopy(items, nextFirst + 1, resizedArray, items.length + nextFirst + 1, items.length - nextFirst-1);
+        //resizedArray[0 : nextLast + 1] = items[0 : nextLast + 1]
+        System.arraycopy(items, 0, resizedArray, 0, nextLast);
+        //resizedArray[items.length + nextFirst + 1 : items.length*2] = items[nextFirst + 1 : items.length]
+        int desPos = items.length + nextFirst + 1;
+        int len = items.length - nextFirst - 1;
+        System.arraycopy(items, nextFirst + 1, resizedArray, desPos, len);
+        //nextLast does not need change
         nextFirst = items.length + nextFirst;
         items = resizedArray;
     }
 
-    public void addFirst(T item) {
-        if (nextFirst == nextLast - 1) {
-            resize();
-        }
-        items[nextFirst] = item;
-        nextFirst--;
-        size++;
+    private void resizeDown() {
+        //length / 2
+        T[] resizedArray = (T[]) new Object[items.length / 2];
+        //resizedArray[0 : nextLast + 1] = items[0 : nextLast + 1]
+        System.arraycopy(items, 0, resizedArray, 0, nextLast);
+        //resizedArray[items.length + nextFirst + 1 : items.length*2] = items[nextFirst + 1 : items.length]
+        int desPos = nextFirst / 2;
+        int len = items.length - nextFirst - 1;
+        System.arraycopy(items, nextFirst + 1, resizedArray, desPos, len);
+        nextFirst = nextFirst / 2 - 1;
+        items = resizedArray;
     }
 
-    public void addLast(T item) {
-        if (nextFirst == nextLast + 1) {
-            resize();
-        }
-        items[nextLast] = item;
-        nextLast++;
-        size++;
-    }
+
+
+
 
     public T removeFirst() {
         if (isEmpty()) {
@@ -75,8 +94,15 @@ public class ArrayDeque<T> {
         items[nextFirst + 1] = null;
         nextFirst++;
         size--;
+
+        //downsize check
+        int usageRatio = size / items.length;
+        if (usageRatio < 0.25) {
+            resizeDown();
+        }
         return result;
     }
+
 
     public T removeLast() {
         if (isEmpty()) {
@@ -91,6 +117,15 @@ public class ArrayDeque<T> {
         items[nextLast - 1] = null;
         nextLast--;
         size--;
+        //downsize check
+        double usageRatio = size / (double) items.length;
+        if (usageRatio < 0.25 && items.length >= 16) {
+            resizeDown();
+        }
         return result;
+    }
+
+    public T get(int index) {
+        return items[index];
     }
 }
