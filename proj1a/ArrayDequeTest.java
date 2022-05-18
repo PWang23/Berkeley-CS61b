@@ -45,8 +45,16 @@ public class ArrayDequeTest {
         L.removeLast();
         L.removeLast();
         L.removeLast();
-
-
     }
 
+    /**
+     * add First then remove Last
+     */
+    @Test
+    public void test4() {
+        ArrayDeque L = new ArrayDeque();
+        L.addFirst(1);
+        L.removeLast();
+        assertEquals(null, L.removeLast());
+    }
 }

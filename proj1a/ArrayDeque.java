@@ -82,7 +82,7 @@ public class ArrayDeque<T> {
 
 
     public T removeFirst() {
-        if (isEmpty()) {
+        if (nextFirst == items.length - 1) {
             System.out.println("empty");
             return null;
         }
@@ -97,7 +97,7 @@ public class ArrayDeque<T> {
 
         //downsize check
         int usageRatio = size / items.length;
-        if (usageRatio < 0.25) {
+        if (usageRatio < 0.25 && items.length >= 16) {
             resizeDown();
         }
         return result;
@@ -105,7 +105,7 @@ public class ArrayDeque<T> {
 
 
     public T removeLast() {
-        if (isEmpty()) {
+        if (nextLast == 0) {
             System.out.println("empty");
             return null;
         }
