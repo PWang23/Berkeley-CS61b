@@ -5,12 +5,12 @@ import static org.junit.Assert.*;
 public class LinkedListDequeTest {
 	/* Test add First*/
 	@Test
-	public void testaddFirstandSize(){
+	public void testaddFirstandSize() {
 		LinkedListDeque L = new LinkedListDeque();
 		L.addFirst(2);
 		L.addFirst(1);
 		L.addLast(3);
-		assertEquals(3,L.size());
+		assertEquals(3, L.size());
 	}
 
 	/* Utility method for printing out empty checks. */
@@ -21,23 +21,23 @@ public class LinkedListDequeTest {
 	}
 
 	@Test
-	public void testremoveFirstandSize(){
+	public void testremoveFirstandSize() {
 		LinkedListDeque L = new LinkedListDeque();
 		L.addFirst(2);
 		L.addFirst(1);
 		L.addLast(3);
 		L.removeFirst();
-		assertEquals(2,L.size());
+		assertEquals(2, L.size());
 	}
 
 	@Test
-	public void testremoveLastandSize(){
+	public void testremoveLastandSize() {
 		LinkedListDeque L = new LinkedListDeque();
 		L.addFirst(2);
 		L.addFirst(1);
 		L.addLast(3);
 		L.removeLast();
-		assertEquals(2,L.size());
+		assertEquals(2, L.size());
 	}
 
 	@Test
@@ -46,7 +46,7 @@ public class LinkedListDequeTest {
 		L.addFirst(2);
 		L.addFirst(1);
 		L.addLast(3);
-		assertEquals(3,L.get(2));
+		assertEquals(3, L.get(2));
 	}
 
 	@Test
@@ -55,7 +55,7 @@ public class LinkedListDequeTest {
 		L.addFirst(2);
 		L.addFirst(1);
 		L.addLast(3);
-		assertEquals(3,L.getRecursive(2));
+		assertEquals(3, L.getRecursive(2));
 	}
 	/* Utility method for printing out empty checks. */
 
