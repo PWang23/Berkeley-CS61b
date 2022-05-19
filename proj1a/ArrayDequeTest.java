@@ -30,10 +30,14 @@ public class ArrayDequeTest {
     @Test
     public void test3() {
         ArrayDeque L = new ArrayDeque();
+        L.addLast(0);
         L.addLast(1);
+        L.get(0);
         L.addLast(2);
         L.addLast(3);
+        L.get(3);
         L.addLast(4);
+        assertEquals(3,L.get(3));
         L.addLast(5);
         L.addLast(6);
         L.addLast(7);

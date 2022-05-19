@@ -155,6 +155,10 @@ public class ArrayDeque<T> {
     }
 
     public T get(int index) {
-        return items[nextFirst + 1];
+        if (nextFirst + 1 + index <= items.length - 1) {
+            return items[nextFirst + 1 + index];
+        } else {
+            return items[nextFirst + 1 + index - items.length];
+        }
     }
 }

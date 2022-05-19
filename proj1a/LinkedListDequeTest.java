@@ -3,15 +3,6 @@ import static org.junit.Assert.*;
 
 /** Performs some basic linked list tests. */
 public class LinkedListDequeTest {
-	@Test
-	public void testaddFirstandSize() {
-		LinkedListDeque L = new LinkedListDeque();
-		L.addFirst(2);
-		L.addFirst(1);
-		L.addLast(3);
-		assertEquals(3, L.size());
-	}
-
 	/* Utility method for printing out empty checks. */
 	@Test
 	public void checkEmpty() {
