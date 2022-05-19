@@ -50,8 +50,8 @@ public class ArrayDeque<T> {
 
     public void printDeque() {
         // if nextFirst < nextLast print items[nextFirst + 1 : nextLast]
-        if (nextFirst < nextLast){
-            for (int i = nextFirst + 1; i < nextLast; i++){
+        if (nextFirst < nextLast) {
+            for (int i = nextFirst + 1; i < nextLast; i++) {
                 System.out.print(items[i] + " ");
             }
             // if nextFirst >= nextLast
@@ -155,6 +155,6 @@ public class ArrayDeque<T> {
     }
 
     public T get(int index) {
-        return items[index];
+        return items[nextFirst + 1];
     }
 }
