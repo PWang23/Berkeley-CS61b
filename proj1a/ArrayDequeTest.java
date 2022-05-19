@@ -31,14 +31,15 @@ public class ArrayDequeTest {
     public void test3() {
         ArrayDeque L = new ArrayDeque();
         L.addLast(1);
-        L.addLast(1);
-        L.addLast(1);
-        L.addLast(1);
-        L.addLast(1);
-        L.addLast(1);
-        L.addLast(1);
-        L.addLast(1);
-        L.addLast(1);
+        L.addLast(2);
+        L.addLast(3);
+        L.addLast(4);
+        L.addLast(5);
+        L.addLast(6);
+        L.addLast(7);
+        L.addLast(8);
+        L.addLast(9);
+        L.removeFirst();
         L.removeLast();
         L.removeLast();
         L.removeLast();
@@ -54,7 +55,16 @@ public class ArrayDequeTest {
     public void test4() {
         ArrayDeque L = new ArrayDeque();
         L.addFirst(1);
-        L.removeLast();
-        assertEquals(null, L.removeLast());
+        L.addFirst(2);
+        L.addFirst(3);
+        L.addFirst(4);
+        L.addFirst(5);
+        L.addFirst(6);
+        L.addFirst(7);
+        L.addFirst(8);
+        L.addFirst(9);
+        L.addFirst(10);
+        L.addFirst(1);
+        L.addFirst(1);
     }
 }
